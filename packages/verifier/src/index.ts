@@ -1,0 +1,7 @@
+export * from "./attestation"
+export * from "./checks"
+export * from "./decide"
+export * from "./model"
+export * from "./proof"
+export * from "./report"
+export { normalizeText, similarity } from "./text-match"

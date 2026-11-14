@@ -1,0 +1,16 @@
+{
+  "name": "monomi",
+  "private": true,
+  "packageManager": "pnpm@10.28.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "pnpm -r test && cd contract && cargo test",
+    "test:contract": "cd contract && cargo test",
+    "build:contract": "cd contract && cargo near build non-reproducible-wasm",
+    "dev": "pnpm --filter web dev",
+    "demo:agent": "pnpm --filter agent demo",
+    "mcp": "pnpm --filter agent mcp"
+  }
+}

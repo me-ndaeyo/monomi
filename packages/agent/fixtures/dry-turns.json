@@ -1,0 +1,34 @@
+[
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_post",
+        "type": "function",
+        "function": {
+          "name": "monomi_post_job",
+          "arguments": "{\"spec\":{\"title\":\"Adeyemi Foods warehouse check\",\"instructions\":\"Photograph the front of the Adeyemi Foods warehouse with the sign visible, and the loading bay showing stock. Hold the paper with the code in the first photo. Stay on the public road.\",\"lat_e6\":8133500,\"lng_e6\":4240500,\"radius_m\":150,\"expected_text\":\"ADEYEMI FOODS\",\"duration_mins\":240,\"min_reputation\":0},\"amount_usd\":15}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_report",
+        "type": "function",
+        "function": {
+          "name": "monomi_get_report",
+          "arguments": "{\"job_id\":142,\"wait_seconds\":1800}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "<think>Report received.</think>I have the verified Monomi report for the Adeyemi Foods warehouse."
+  }
+]
