@@ -51,7 +51,7 @@ export default function CameraStep({ jobId, code, expiresAt, busy, onSend }: Rea
   }
 
   return (
-    <div className="flex min-h-dvh flex-col bg-ink text-bone">
+    <div className="flex min-h-dvh flex-col md:min-h-[calc(100dvh-64px)] bg-ink text-bone">
       <div className="flex items-center justify-between px-4 pb-3 pt-[18px]">
         <Link href={`/jobs/${jobId}`} aria-label="Close camera" className="flex h-11 w-11 items-center justify-center rounded-full bg-ink-3"><CloseIcon color="#EFEBE2" /></Link>
         <span className="font-mono text-[13px] text-soft">

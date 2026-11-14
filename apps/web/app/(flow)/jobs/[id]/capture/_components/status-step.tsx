@@ -33,7 +33,7 @@ function Action({ action, className }: Readonly<{ action: StatusAction; classNam
 /** Code request, rejection, review and payout states share this screen. */
 export default function StatusStep({ jobId, tone, title, body, reasons = [], primary, secondary, error }: Readonly<StatusStepProps>) {
   return (
-    <div className="flex min-h-dvh flex-col gap-6 bg-bone px-5 pb-6 pt-[18px]">
+    <div className="flex min-h-dvh flex-col md:min-h-[calc(100dvh-64px)] gap-6 bg-bone px-5 pb-6 pt-[18px]">
       <Link href={`/jobs/${jobId}`} aria-label="Close" className="flex h-[46px] w-[46px] items-center justify-center self-end rounded-full bg-ink/10"><CloseIcon color="#0B0C0A" /></Link>
       <div className="flex flex-col gap-3">
         <h1 className={`display m-0 text-[36px] leading-[0.95] ${tone === "fail" ? "text-fail-light" : ""}`}>{title}</h1>
@@ -47,7 +47,7 @@ export default function StatusStep({ jobId, tone, title, body, reasons = [], pri
         </ul>
       )}
       {error && <p role="alert" className="m-0 text-[14px] text-fail-light">{error}</p>}
-      <div className="mt-auto flex flex-col gap-2.5">
+      <div className="mt-auto flex flex-col gap-2.5 md:mt-4">
         {primary && <Action action={primary} className={PRIMARY} />}
         {secondary && <Action action={secondary} className={SECONDARY} />}
       </div>

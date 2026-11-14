@@ -9,7 +9,7 @@ const STEPS: { stage: SendStage; label: string }[] = [
 export default function CheckingStep({ stage }: Readonly<{ stage: SendStage }>) {
   const current = STEPS.findIndex((s) => s.stage === stage)
   return (
-    <div className="flex min-h-dvh flex-col gap-8 bg-bone px-5 pt-16">
+    <div className="flex min-h-dvh flex-col md:min-h-[calc(100dvh-64px)] gap-8 bg-bone px-5 pt-16">
       <div className="flex flex-col items-center gap-4 text-center">
         <span className="ck-spin h-14 w-14 rounded-full border-4 border-sand border-t-ink" aria-hidden="true" />
         <h1 className="display m-0 text-[34px] leading-none">Checking your photos</h1>

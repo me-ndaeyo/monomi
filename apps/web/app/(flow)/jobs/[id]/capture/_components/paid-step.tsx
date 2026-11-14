@@ -6,7 +6,7 @@ const CHECKS = ["Right place", "Just now", "Code", "Sign", "Real photos"]
 
 export default function PaidStep({ jobId, amount, title, approved }: Readonly<{ jobId: number; amount: string; title: string; approved: number }>) {
   return (
-    <div className="flex min-h-dvh flex-col bg-kola px-5 pb-6 pt-[18px] text-ink">
+    <div className="flex min-h-dvh flex-col md:min-h-[calc(100dvh-64px)] bg-kola px-5 pb-6 pt-[18px] text-ink">
       <div className="mt-12 flex flex-col items-center gap-4 text-center">
         <div className="relative h-24 w-24">
           <span className="pd-ring absolute inset-0 rounded-full border-2 border-ink" aria-hidden="true" />
@@ -33,7 +33,7 @@ export default function PaidStep({ jobId, amount, title, approved }: Readonly<{ 
         </div>
         <span className="text-[13px] text-muted">That's {approved} {approved === 1 ? "job" : "jobs"} done.</span>
       </div>
-      <div className="mt-auto flex flex-col gap-2.5 pt-6">
+      <div className="mt-auto flex flex-col gap-2.5 pt-6 md:mt-4">
         <Link href="/wallet" className="flex h-[58px] items-center justify-center rounded-[18px] bg-ink text-[17px] font-semibold text-bone no-underline">Cash out</Link>
         <div className="grid grid-cols-2 gap-2.5">
           <Link href={`/report/${jobId}`} className="flex h-[52px] items-center justify-center rounded-2xl border-[1.5px] border-ink text-[15px] font-semibold text-ink no-underline">See the report</Link>
