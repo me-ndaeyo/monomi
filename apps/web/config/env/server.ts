@@ -4,7 +4,7 @@ import { z } from "zod"
 
 export const serverEnv = createEnv({
   server: {
-    NEAR_RPC_URL: z.url().default("https://rpc.testnet.near.org"),
+    NEAR_RPC_URL: z.url().default("https://test.rpc.fastnear.com"),
     VERIFIER_ACCOUNT_ID: z.string().default("verifier.monomi.testnet"),
     VERIFIER_PRIVATE_KEY: z.string().startsWith("ed25519:"),
     NEARAI_API_KEY: z.string().min(1),

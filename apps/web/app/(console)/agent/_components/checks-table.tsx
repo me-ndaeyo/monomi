@@ -11,7 +11,7 @@ import { getJobs } from "@/lib/near/contract"
 export default function ChecksTable({ account }: Readonly<{ account: string }>) {
   const { data, isLoading, error } = useQuery({ queryKey: [...JOBS_QUERY_KEY, "poster", account], queryFn: () => getJobs({ poster: account }), refetchInterval: 15_000 })
   if (isLoading) return <div className="h-40 animate-pulse rounded-[20px] bg-sand" />
-  if (error) return <p className="rounded-2xl bg-fail-light/10 p-5 text-fail-light">Could not load your checks from NEAR.</p>
+  if (error) return <p className="rounded-2xl bg-fail-light/10 p-5 text-fail-light">Could not load your checks from NEAR. {error.message}</p>
   if (!data?.length)
     return (
       <div className="rounded-[20px] border border-card-line bg-white p-6 text-[15px] text-muted-light">

@@ -4,7 +4,7 @@ import { z } from "zod"
 export const clientEnv = createEnv({
   client: {
     NEXT_PUBLIC_NEAR_NETWORK: z.literal("testnet").default("testnet"),
-    NEXT_PUBLIC_NEAR_RPC_URL: z.url().default("https://rpc.testnet.near.org"),
+    NEXT_PUBLIC_NEAR_RPC_URL: z.url().default("https://test.rpc.fastnear.com"),
     NEXT_PUBLIC_MONOMI_CONTRACT_ID: z.string().default("escrow.monomi.testnet"),
     NEXT_PUBLIC_USDC_CONTRACT_ID: z.string().default("tusdc.monomi.testnet"),
   },

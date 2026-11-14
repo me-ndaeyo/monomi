@@ -26,7 +26,7 @@ export default function JobsView() {
   const ranked = rankJobs(jobs.data ?? [], { sort, here, approved: worker.data?.approved ?? 0, account: wallet.accountId, now })
 
   return (
-    <div className="relative min-h-dvh">
+    <div className="relative min-h-dvh pt-[330px]">
       <JobsMap jobs={ranked} here={here} />
       <div className="absolute inset-x-4 top-[18px] flex items-center justify-between">
         {wallet.accountId ? (

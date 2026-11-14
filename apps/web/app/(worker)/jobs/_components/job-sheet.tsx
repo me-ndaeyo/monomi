@@ -28,7 +28,7 @@ export default function JobSheet({ ranked, now, approved, sort, onSort, isLoadin
         ? "Sorted from where you are"
         : "Finding where you are…"
   return (
-    <section className="relative mt-[330px] flex min-h-[calc(100dvh-330px)] flex-col gap-3.5 rounded-t-[28px] bg-bone px-4 pt-2.5 shadow-[0_-10px_30px_rgba(11,12,10,0.12)]">
+    <section className="relative z-10 flex min-h-[calc(100dvh-330px)] flex-col gap-3.5 rounded-t-[28px] bg-bone px-4 pt-2.5 shadow-[0_-10px_30px_rgba(11,12,10,0.12)]">
       <span aria-hidden="true" className="h-1 w-10 self-center rounded-full bg-[#C9C3B3]" />
       <div className="flex flex-col gap-0.5 px-1">
         <h1 className="display m-0 text-[30px] leading-none tracking-[-0.035em]">
@@ -56,7 +56,7 @@ export default function JobSheet({ ranked, now, approved, sort, onSort, isLoadin
         </div>
       ) : error ? (
         <p className="rounded-2xl border border-fail-light/40 bg-fail-light/10 p-5 text-center text-[14px] text-fail-light">
-          Could not load jobs from NEAR. Check your connection and pull to refresh.
+          Could not load jobs from NEAR. {error.message}
         </p>
       ) : !first ? (
         <p className="rounded-2xl border border-card-line bg-white p-6 text-center text-[14px] text-muted-light">

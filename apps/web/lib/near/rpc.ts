@@ -21,7 +21,10 @@ async function rpc(method: string, params: unknown): Promise<unknown> {
   return body.result
 }
 
-const CallResult = z.object({ result: z.array(z.number()) })
+const CallResult = z.union([
+  z.object({ result: z.array(z.number()) }),
+  z.object({ error: z.string() }),
+])
 
 export async function viewFunction(
   contractId: string,
@@ -35,7 +38,9 @@ export async function viewFunction(
     method_name: methodName,
     args_base64: btoa(JSON.stringify(args)),
   })
-  const bytes = Uint8Array.from(CallResult.parse(result).result)
+  const call = CallResult.parse(result)
+  if ("error" in call) throw new Error(call.error)
+  const bytes = Uint8Array.from(call.result)
   return JSON.parse(new TextDecoder().decode(bytes))
 }
 
