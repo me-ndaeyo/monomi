@@ -64,6 +64,11 @@ describe("verifyChatSignature", () => {
     expect(result.data?.matches).toBe(true)
   })
 
+  test("matches the live format where the model name prefixes the hashes", async () => {
+    const result = await verifyWith(`Qwen/Qwen3-VL-30B-A3B-Instruct:${TEXT}`)
+    expect(result.data?.matches).toBe(true)
+  })
+
   test("does not match when a different key signed", async () => {
     const result = await verifyWith(TEXT, other)
     expect(result.data?.matches).toBe(false)

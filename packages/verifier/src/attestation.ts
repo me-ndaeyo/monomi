@@ -93,9 +93,11 @@ export async function verifyChatSignature(
   const expectedText = [input.requestBody, input.responseBody]
     .map((body) => sha256Hex(body))
     .join(":")
+  // NEAR AI signs "<model>:<request sha256>:<response sha256>"; compare the hash pair.
+  const signedHashes = parsed.text.split(":").slice(-2).join(":").toLowerCase()
   const signer = await recoverSigner(parsed.text, parsed.signature)
   const matches =
-    parsed.text.toLowerCase() === expectedText &&
+    signedHashes === expectedText &&
     signer !== null &&
     signer.toLowerCase() === input.expectedAddress.toLowerCase()
 
