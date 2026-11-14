@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import { CloseIcon } from "@/components/ui/icons"
 import { useCamera } from "../_hooks/use-camera"
 import { gpsColor, useGps } from "../_hooks/use-gps"
-import { captureFrame, currentPosition } from "../_lib/compress"
+import { captureFrame, currentPosition, locationError } from "../_lib/compress"
 import CameraNotice from "./camera-notice"
 
 interface CameraStepProps {
@@ -39,13 +39,15 @@ export default function CameraStep({ jobId, code, expiresAt, busy, onSend }: Rea
   const shoot = async () => {
     if (!videoRef.current || shots.length >= MAX_PHOTOS) return
     setShotError(null)
+    let pos: GeolocationPosition
     try {
-      const [blob, pos] = await Promise.all([captureFrame(videoRef.current), currentPosition()])
-      setPosition(pos)
-      setShots((s) => [...s, { blob, url: URL.createObjectURL(blob) }])
-    } catch {
-      setShotError("We need your location at the moment you take the photo. Allow location and try again.")
+      pos = await currentPosition()
+    } catch (error) {
+      return setShotError(locationError(error))
     }
+    const blob = await captureFrame(videoRef.current)
+    setPosition(pos)
+    setShots((s) => [...s, { blob, url: URL.createObjectURL(blob) }])
   }
 
   return (
@@ -74,7 +76,12 @@ export default function CameraStep({ jobId, code, expiresAt, busy, onSend }: Rea
           <span className="rounded-full bg-ink/80 px-3.5 py-2 text-[13px]">Photo {Math.min(shots.length + 1, MAX_PHOTOS)} of up to {MAX_PHOTOS}</span>
         </div>
       </div>
-      {shotError && <p role="alert" className="mx-4 mt-2 text-[13px] text-fail">{shotError}</p>}
+      {(shotError || gps.status !== "ok") && (
+        <div role="alert" className="mx-4 mt-2 flex items-center justify-between gap-3 rounded-xl bg-ink-3 p-3 text-[13px]">
+          <span className={shotError ? "text-fail" : "text-soft"}>{shotError ?? "We need your location to check you are at the spot."}</span>
+          <button type="button" onClick={() => currentPosition().then(() => setShotError(null), (e) => setShotError(locationError(e)))} className="shrink-0 rounded-full bg-bone px-3 py-2 font-semibold text-ink">Allow location</button>
+        </div>
+      )}
       <div className="grid grid-cols-[1fr_auto_1fr] items-center px-6 pb-7 pt-[18px]">
         <div className="flex gap-2">
           {shots.map((s, i) => (

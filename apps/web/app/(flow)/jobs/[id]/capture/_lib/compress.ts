@@ -13,6 +13,15 @@ export function captureFrame(video: HTMLVideoElement): Promise<Blob> {
   )
 }
 
+/** Plain-language reason for a failed location read. */
+export function locationError(error: unknown): string {
+  const code = error instanceof GeolocationPositionError ? error.code : 0
+  if (code === 1) return "Location is blocked for this site. Click the icon left of the address bar, set Location to Allow, then reload."
+  if (code === 2) return "Your device can't find its location. On a Mac, turn on Location Services for your browser in System Settings > Privacy & Security."
+  if (code === 3) return "Finding your location took too long. Step outside or near a window and try again."
+  return "We need your location at the moment you take the photo."
+}
+
 export function currentPosition(): Promise<GeolocationPosition> {
   return new Promise((resolve, reject) =>
     navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true, maximumAge: 0, timeout: 15_000 })

@@ -23,14 +23,14 @@ export default function JobDetailView({ jobId }: Readonly<{ jobId: number }>) {
 
   const { spec } = job
   return (
-    <div className="flex min-h-dvh flex-col">
-      <div className="relative">
+    <div className="flex min-h-dvh flex-col md:grid md:min-h-[calc(100dvh-64px)] md:grid-cols-[1fr_520px]">
+      <div className="relative md:sticky md:top-16 md:h-[calc(100dvh-64px)] [&>div:first-child]:md:h-full">
         <StaticMap label={formatUsdc(job.amount, false)} />
         <Link href="/jobs" aria-label="Back to jobs" className="absolute left-4 top-[18px] flex h-[46px] w-[46px] items-center justify-center rounded-full bg-white shadow-[0_6px_16px_rgba(11,12,10,0.18)]">
           <ChevronIcon back color="#0B0C0A" />
         </Link>
       </div>
-      <div className="relative -mt-8 flex flex-1 flex-col gap-4 rounded-t-[28px] bg-bone px-5 pb-4 pt-2.5 shadow-[0_-10px_30px_rgba(11,12,10,0.12)]">
+      <div className="relative -mt-8 flex flex-1 flex-col gap-4 rounded-t-[28px] bg-bone px-5 pb-4 pt-2.5 shadow-[0_-10px_30px_rgba(11,12,10,0.12)] md:col-start-2 md:row-start-1 md:mt-0 md:rounded-none md:border-l md:border-card-line md:px-8 md:pt-8 md:shadow-none">
         <span aria-hidden="true" className="h-1 w-10 self-center rounded-full bg-[#C9C3B3]" />
         <div className="flex items-center justify-between">
           <span className="display text-[40px] leading-none">
@@ -60,7 +60,9 @@ export default function JobDetailView({ jobId }: Readonly<{ jobId: number }>) {
           <span>Don't go onto private property and don't photograph faces. If it feels unsafe, leave. You can drop the job at any time.</span>
         </div>
       </div>
-      <JobActions job={job} />
+      <div className="md:col-start-2 md:border-l md:border-card-line">
+        <JobActions job={job} />
+      </div>
     </div>
   )
 }
