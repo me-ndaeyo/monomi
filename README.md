@@ -247,10 +247,12 @@ One full run on testnet:
 
 | Step | Transaction |
 |---|---|
-| Demo agent posts a job | <TX_POST> |
-| Worker claims it | <TX_CLAIM> |
-| Verifier rejects the first attempt (wrong code) | <TX_RESOLVE_REJECT> |
-| Verifier approves the retry, worker is paid | <TX_RESOLVE_PAID> |
+| Escrow contract deployed and initialised | [HdbxheJs](https://testnet.nearblocks.io/txns/HdbxheJsAC5pRLd52VGCc2fhjF3zzRMhMmHSxg2bqrqv) |
+| Test USDC deployed | [26dsSfvj](https://testnet.nearblocks.io/txns/26dsSfvjwHFpsgP9vXgAc1KtEtSU9345d7NPpLcBd6cf) |
+| Escrow registered on the token | [EZ1d2Q3G](https://testnet.nearblocks.io/txns/EZ1d2Q3GAH2B1gfAF5Ze1YxT9iBPQ9dqnKS3JPzj3cP3) |
+| Verifier function-call key added (resolve only) | [96tYuXxh](https://testnet.nearblocks.io/txns/96tYuXxhqDopsY9fjPfT8rDjT4Wgg1AkSh9U37bQwHf6) |
+
+Live use so far: jobs #0 and #1 were posted from the web app by `test-company.testnet`, and job #1 was claimed by `monomi-worker.testnet` (all calls on the [escrow's NearBlocks page](https://testnet.nearblocks.io/address/escrow.monomi.testnet)). A photo check and payout through the hosted app had not been completed at submission time.
 
 ## Mainnet launch plan
 
