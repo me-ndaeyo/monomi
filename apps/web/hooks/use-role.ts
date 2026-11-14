@@ -42,5 +42,11 @@ export function useRole() {
     }
   }
 
-  return { role: query.data ?? null, isLoading: !wallet.isReady || (wallet.accountId !== null && query.isLoading), error, choose }
+  return {
+    role: query.data ?? null,
+    isLoading: !wallet.isReady || (wallet.accountId !== null && query.isLoading),
+    loadError: query.error ? query.error.message : null,
+    error,
+    choose,
+  }
 }

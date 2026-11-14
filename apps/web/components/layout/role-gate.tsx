@@ -16,6 +16,13 @@ export default function RoleGate({ role, children }: Readonly<{ role: Role; chil
 
   if (current.isLoading) return <div className="m-6 h-[60dvh] animate-pulse rounded-[24px] bg-sand" aria-busy="true" />
   if (wallet.accountId && current.role === role) return <>{children}</>
+  if (current.loadError)
+    return (
+      <section className="mx-auto flex max-w-[720px] flex-col gap-3 px-4 py-16">
+        <h1 className="display m-0 text-[40px] leading-[0.95]">We couldn't load your account.</h1>
+        <p className="m-0 text-[16px] text-muted-light">{current.loadError}. Check your connection and reload the page.</p>
+      </section>
+    )
 
   const account = wallet.accountId
   const choose = async (r: Role) => {
