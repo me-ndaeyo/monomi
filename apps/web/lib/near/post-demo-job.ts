@@ -16,7 +16,7 @@ export async function postDemoJob(lat: number, lng: number) {
       "Write MONOMI and the code we show you on a sheet of paper. Take one photo of the paper with the place around you in the shot.",
     lat_e6: Math.round(lat * 1e6),
     lng_e6: Math.round(lng * 1e6),
-    radius_m: 150,
+    radius_m: 500,
     expected_text: "MONOMI",
     duration_mins: 60,
     min_reputation: 0,

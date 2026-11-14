@@ -10,14 +10,6 @@ import CashOutForm from "./_components/cash-out-form"
 export default function WalletPage() {
   const wallet = useWallet()
   const balance = useUsdcBalance(wallet.accountId)
-  if (!wallet.accountId)
-    return (
-      <div className="flex min-h-[80dvh] flex-col items-center justify-center gap-4 px-8 text-center">
-        <h1 className="display m-0 text-[34px] leading-none">Wallet</h1>
-        <p className="m-0 text-[15px] text-muted-light">Connect your NEAR wallet to see your balance.</p>
-        <button type="button" onClick={wallet.connect} className="rounded-full bg-ink px-6 py-3.5 font-semibold text-bone">Connect wallet</button>
-      </div>
-    )
   const usd = balance.data ? Number(BigInt(balance.data)) / 1e6 : 0
   return (
     <div className="flex flex-col gap-4 px-4 pt-8">

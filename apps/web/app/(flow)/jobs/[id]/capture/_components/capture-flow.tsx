@@ -24,9 +24,7 @@ export default function CaptureFlow({ jobId }: Readonly<{ jobId: number }>) {
   const last = flow.result ?? verification.data ?? null
   const base = { jobId, error: flow.error }
 
-  if (isLoading || !wallet.isReady) return <div className="h-dvh animate-pulse bg-sand" />
-  if (!wallet.accountId)
-    return <StatusStep {...base} tone="neutral" title="Connect your wallet" body="Your wallet is your Monomi account. Connect it to carry on with this job." primary={{ label: "Connect wallet", onClick: wallet.connect }} />
+  if (isLoading) return <div className="h-dvh animate-pulse bg-sand" />
   if (!job || job.worker !== wallet.accountId)
     return <StatusStep {...base} tone="neutral" title="This isn't your job" body="Take a job from the list first." primary={{ label: "See the job", href: `/jobs/${jobId}` }} />
   if (flow.stage !== "idle") return <CheckingStep stage={flow.stage} />

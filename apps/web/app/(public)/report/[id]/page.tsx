@@ -25,9 +25,9 @@ export default async function ReportPage({ params }: Readonly<{ params: Promise<
   const found = job ? await getLatestReport(job.id) : null
   const report = found?.report
   return (
-    <div className="bg-bone text-ink">
+    <div className="flex min-h-dvh flex-col bg-bone text-ink">
       <SlimHeader tone="dark" action={<ShareButton />} />
-      <main className="mx-auto flex max-w-[760px] flex-col gap-6 px-4 pb-10 pt-4">
+      <main className="mx-auto flex w-full max-w-[760px] flex-1 flex-col gap-6 px-4 pb-10 pt-4">
         {!job || !report ? (
           <div className="flex flex-col gap-3 rounded-[20px] border border-card-line bg-white p-6">
             <h1 className="display m-0 text-[34px] leading-none">No report yet</h1>

@@ -17,7 +17,7 @@ export default function ActivePage() {
     if (active !== null) router.replace(`/jobs/${active}`)
   }, [active, router])
 
-  if (wallet.accountId && (worker.isLoading || active !== null)) return <div className="h-dvh animate-pulse bg-sand" />
+  if (worker.isLoading || active !== null) return <div className="h-dvh animate-pulse bg-sand" />
   return (
     <div className="flex min-h-[80dvh] flex-col items-center justify-center gap-4 px-8 text-center">
       <h1 className="display m-0 text-[34px] leading-none">No job in progress</h1>

@@ -9,7 +9,7 @@ import TabIcon from "./tab-icon"
 export default function TabBar() {
   const pathname = usePathname()
   return (
-    <nav aria-label="App" className="fixed inset-x-3 bottom-4 z-20 mx-auto grid max-w-[456px] grid-cols-4 rounded-[22px] bg-ink p-2 shadow-[0_10px_30px_rgba(11,12,10,0.3)]">
+    <nav aria-label="App" className="fixed inset-x-3 bottom-4 z-20 mx-auto grid md:hidden max-w-[456px] grid-cols-4 rounded-[22px] bg-ink p-2 shadow-[0_10px_30px_rgba(11,12,10,0.3)]">
       {WORKER_TABS.map((tab) => {
         const active = pathname.startsWith(tab.url)
         return (

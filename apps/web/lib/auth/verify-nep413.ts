@@ -6,7 +6,7 @@ import { z } from "zod"
 import { serverEnv } from "@/config/env/server"
 import { sql } from "@/lib/db/sql"
 
-export type AuthAction = "challenge" | "proof" | "verify" | "report"
+export type AuthAction = "challenge" | "proof" | "verify" | "report" | "role"
 
 const NONCE_TTL_MINUTES = 5
 

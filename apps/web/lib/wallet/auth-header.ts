@@ -1,6 +1,6 @@
 import type { WalletState } from "./wallet-provider"
 
-type Action = "challenge" | "proof" | "verify" | "report"
+type Action = "challenge" | "proof" | "verify" | "report" | "role"
 
 /** Gets a server nonce and signs `monomi:<action>:<job>:<nonce>` (NEP-413). */
 export async function authHeader(wallet: WalletState, action: Action, jobId: number) {

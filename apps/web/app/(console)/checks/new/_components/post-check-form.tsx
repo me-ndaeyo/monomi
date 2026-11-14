@@ -11,7 +11,7 @@ import { ESCROW, USDC } from "@/lib/near/contract"
 import { PostCheckSchema, type PostCheckInput } from "../_schemas/post-check"
 import Field, { INPUT } from "./field"
 
-const DEFAULTS: PostCheckInput = { title: "", lat: "", lng: "", radius_m: 100, instructions: "", expected_text: "", duration_mins: 180, pay: "5" }
+const DEFAULTS: PostCheckInput = { title: "", lat: "", lng: "", radius_m: 500, instructions: "", expected_text: "", duration_mins: 180, pay: "5" }
 
 export default function PostCheckForm() {
   const wallet = useWallet()
@@ -59,8 +59,8 @@ export default function PostCheckForm() {
             <button type="button" onClick={useMyLocation} className="rounded-xl border border-card-line bg-white px-3 text-[13px]">Use my location</button>
           </div>
         </Field>
-        <Field label="Must be within">
-          <select className={INPUT} value={String(values.radius_m)} onChange={set("radius_m")}><option value="50">50 m</option><option value="100">100 m</option><option value="250">250 m</option></select>
+        <Field label="Must be within" hint="The worker's GPS must be this close to the spot. Smaller is stricter.">
+          <select className={INPUT} value={String(values.radius_m)} onChange={set("radius_m")}><option value="100">100 m</option><option value="250">250 m</option><option value="500">500 m</option><option value="1000">1 km</option><option value="2000">2 km</option></select>
         </Field>
         <Field label="What should they photograph?" hint="Be specific. Things they can see from outside work best." error={errors.instructions}><textarea className={`${INPUT} h-28 py-2`} value={String(values.instructions)} onChange={set("instructions")} /></Field>
         <Field label="What should the sign say? (optional)" error={errors.expected_text}><input className={INPUT} value={String(values.expected_text)} onChange={set("expected_text")} placeholder="ADEYEMI FOODS" /></Field>

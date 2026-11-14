@@ -15,14 +15,6 @@ const RULES = [
 export default function MePage() {
   const wallet = useWallet()
   const worker = useWorker(wallet.accountId)
-  if (!wallet.accountId)
-    return (
-      <div className="flex min-h-[80dvh] flex-col items-center justify-center gap-4 px-8 text-center">
-        <h1 className="display m-0 text-[34px] leading-none">Your account</h1>
-        <p className="m-0 text-[15px] text-muted-light">Your NEAR wallet is your Monomi account. We never ask for a name or phone number.</p>
-        <button type="button" onClick={wallet.connect} className="rounded-full bg-ink px-6 py-3.5 font-semibold text-bone">Connect wallet</button>
-      </div>
-    )
   const done = worker.data?.approved ?? 0
   const next = Math.ceil((done + 1) / UNLOCK_STEP) * UNLOCK_STEP
   return (

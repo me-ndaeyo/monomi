@@ -29,6 +29,7 @@ const DEFAULT_GAS = 100_000_000_000_000n
 export function WalletProvider({ children }: Readonly<{ children: React.ReactNode }>) {
   const [connector, setConnector] = useState<NearConnector | null>(null)
   const [accountId, setAccountId] = useState<string | null>(null)
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
     const nc = new NearConnector({ network: clientEnv.NEXT_PUBLIC_NEAR_NETWORK, features: { testnet: true } })
@@ -37,6 +38,7 @@ export function WalletProvider({ children }: Readonly<{ children: React.ReactNod
     nc.getConnectedWallet()
       .then(({ accounts }) => setAccountId(accounts[0]?.accountId ?? null))
       .catch(() => setAccountId(null))
+      .finally(() => setIsReady(true))
     setConnector(nc)
     return () => nc.removeAllListeners()
   }, [])
@@ -68,7 +70,7 @@ export function WalletProvider({ children }: Readonly<{ children: React.ReactNod
   const value = useMemo<WalletState>(
     () => ({
       accountId,
-      isReady: connector !== null,
+      isReady,
       connect: () => void connector?.connect().catch(() => undefined),
       disconnect: async () => {
         await connector?.disconnect()
@@ -77,7 +79,7 @@ export function WalletProvider({ children }: Readonly<{ children: React.ReactNod
       call,
       signMessage,
     }),
-    [accountId, connector, call, signMessage]
+    [accountId, isReady, connector, call, signMessage]
   )
 
   return <WalletContext.Provider value={value}>{children}</WalletContext.Provider>

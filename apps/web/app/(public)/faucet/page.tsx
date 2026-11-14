@@ -14,9 +14,9 @@ export default function FaucetPage() {
   const faucet = useFaucet()
   const balance = useUsdcBalance(wallet.accountId)
   return (
-    <div className="min-h-dvh bg-ink text-bone">
+    <div className="flex min-h-dvh flex-col bg-ink text-bone">
       <SlimHeader tone="light" action={<span className="font-mono text-[12px] text-soft">Test mode · NEAR testnet</span>} />
-      <main className="mx-auto flex max-w-[560px] flex-col gap-5 px-4 py-10">
+      <main className="mx-auto w-full flex-1 flex max-w-[560px] flex-col gap-5 px-4 py-10">
         <h1 className="display m-0 text-[48px] leading-[0.95]">Get 25 test USDC</h1>
         <p className="m-0 text-[16px] leading-relaxed text-soft">Test USDC has no value. Use it to post checks like an agent or a business would. One mint per wallet per day.</p>
         {wallet.accountId && <p className="m-0 font-mono text-[14px] text-soft">{wallet.accountId} · {balance.data ? formatUsdc(balance.data) : "…"}</p>}

@@ -2,7 +2,7 @@ import { LockIcon } from "@/components/ui/icons"
 import { formatUsdc } from "@/lib/format/usdc"
 import type { RankedJob } from "../_lib/rank-jobs"
 
-const MAP_RADIUS_M = 2500
+const MAP_RADIUS_M = 5000
 const W = 390
 const H = 380
 
@@ -16,8 +16,8 @@ export default function JobsMap({ jobs, here }: Readonly<{ jobs: RankedJob[]; he
     return { x: Math.max(30, Math.min(W - 60, W / 2 + dx * scale)), y: Math.max(70, Math.min(H - 60, H / 2 - dy * scale)) }
   }
   return (
-    <div className="absolute inset-x-0 top-0 h-[380px] overflow-hidden bg-sand" aria-hidden="true">
-      <svg width="100%" height="380" viewBox="0 0 390 380" preserveAspectRatio="xMidYMid slice" fill="none">
+    <div className="absolute inset-0 overflow-hidden bg-sand" aria-hidden="true">
+      <svg width="100%" height="100%" viewBox="0 0 390 380" preserveAspectRatio="xMidYMid slice" fill="none" className="absolute inset-0">
         <rect x="22" y="40" width="70" height="56" rx="6" fill="#D8D1C0" />
         <rect x="118" y="30" width="96" height="40" rx="6" fill="#D8D1C0" />
         <rect x="250" y="48" width="110" height="64" rx="6" fill="#D8D1C0" />
@@ -29,8 +29,13 @@ export default function JobsMap({ jobs, here }: Readonly<{ jobs: RankedJob[]; he
         <path d="M-10 250 C 120 258, 260 236, 400 246" stroke="#F7F4EC" strokeWidth="11" />
         <path d="M110 -10 C 118 120, 104 240, 124 400" stroke="#F7F4EC" strokeWidth="10" />
         <path d="M236 -10 C 232 130, 248 250, 236 400" stroke="#F7F4EC" strokeWidth="13" />
-        {here && <circle cx="195" cy="190" r="140" stroke="#3347C8" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="3 5" />}
       </svg>
+      <div className="absolute left-1/2 top-1/2 h-[380px] w-[390px] -translate-x-1/2 -translate-y-1/2">
+      {here && (
+        <svg width="390" height="380" viewBox="0 0 390 380" fill="none" className="absolute inset-0">
+          <circle cx="195" cy="190" r="140" stroke="#3347C8" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="3 5" />
+        </svg>
+      )}
       {here && (
         <div className="absolute h-4 w-4" style={{ left: "calc(50% - 8px)", top: 182 }}>
           <span className="j-halo absolute inset-0 rounded-full bg-indigo" />
@@ -59,6 +64,7 @@ export default function JobsMap({ jobs, here }: Readonly<{ jobs: RankedJob[]; he
           </div>
         )
       })}
+      </div>
     </div>
   )
 }

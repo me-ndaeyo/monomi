@@ -28,8 +28,8 @@ export default function JobSheet({ ranked, now, approved, sort, onSort, isLoadin
         ? "Sorted from where you are"
         : "Finding where you are…"
   return (
-    <section className="relative z-10 flex min-h-[calc(100dvh-330px)] flex-col gap-3.5 rounded-t-[28px] bg-bone px-4 pt-2.5 shadow-[0_-10px_30px_rgba(11,12,10,0.12)]">
-      <span aria-hidden="true" className="h-1 w-10 self-center rounded-full bg-[#C9C3B3]" />
+    <section className="relative z-10 flex min-h-[calc(100dvh-330px)] flex-col gap-3.5 rounded-t-[28px] bg-bone px-4 pt-2.5 shadow-[0_-10px_30px_rgba(11,12,10,0.12)] md:min-h-0 md:rounded-none md:border-l md:border-card-line md:px-6 md:pt-6 md:shadow-none">
+      <span aria-hidden="true" className="h-1 w-10 self-center rounded-full bg-[#C9C3B3] md:hidden" />
       <div className="flex flex-col gap-0.5 px-1">
         <h1 className="display m-0 text-[30px] leading-none tracking-[-0.035em]">
           {isLoading ? "Looking for jobs" : `${ranked.length} ${ranked.length === 1 ? "job" : "jobs"} near you`}

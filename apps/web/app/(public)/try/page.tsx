@@ -8,9 +8,9 @@ export const metadata: Metadata = { title: "Try it where you are" }
 
 export default function TryPage() {
   return (
-    <div className="min-h-dvh bg-ink text-bone">
+    <div className="flex min-h-dvh flex-col bg-ink text-bone">
       <SlimHeader tone="light" action={<span className="rounded-full border border-line px-3 py-1.5 font-mono text-[12px] text-soft">Test mode · NEAR testnet</span>} />
-      <main className="mx-auto grid max-w-[1200px] gap-10 px-4 py-10 lg:grid-cols-[1fr_520px]">
+      <main className="mx-auto w-full flex-1 grid max-w-[1200px] gap-10 px-4 py-10 lg:grid-cols-[1fr_520px]">
         <div className="flex flex-col gap-5">
           <h1 className="display m-rise m-0 text-[52px] leading-[0.92] sm:text-[72px]">Try the whole loop where you are.</h1>
           <p className="m-rise m-d1 m-0 max-w-[520px] text-[17px] leading-relaxed text-soft">You'll play both sides: someone who needs a place checked, and the person who checks it. It runs on NEAR testnet with test money, and takes about five minutes.</p>

@@ -20,8 +20,13 @@ export function useFaucet() {
       await queryClient.invalidateQueries({ queryKey: ["usdc-balance", wallet.accountId] })
       setState({ status: "done", error: null })
     } catch (error) {
-      const text = error instanceof Error ? error.message : ""
-      setState({ status: "idle", error: text.includes("One mint per day") ? "You already got test USDC today. Come back tomorrow." : "Mint failed. Your wallet needs a little testnet NEAR for fees (near-faucet.io)." })
+      const text = error instanceof Error ? error.message : String(error)
+      setState({
+        status: "idle",
+        error: /mint per day/i.test(text)
+          ? "You already got test USDC in the last 24 hours. Try again tomorrow."
+          : `Mint failed: ${text}`,
+      })
     }
   }
   return { ...state, mint }

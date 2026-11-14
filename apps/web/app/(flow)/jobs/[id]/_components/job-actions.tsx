@@ -23,7 +23,6 @@ export default function JobActions({ job }: Readonly<{ job: Job }>) {
   const staleClaim = job.status === "Claimed" && job.claimed_ns !== null && now > job.claimed_ns + CLAIM_TTL_MS
 
   const body = (() => {
-    if (!wallet.accountId) return <button type="button" className={BUTTON} onClick={wallet.connect}>Connect wallet to take this job</button>
     if (mine) return <Link href={`/jobs/${job.id}/capture`} className={BUTTON}>Continue this job <ArrowIcon color="#F2A23A" size={16} /></Link>
     if (expired && (job.status === "Open" || job.status === "Claimed"))
       return <button type="button" className={QUIET} disabled={claim.isSubmitting} onClick={() => void claim.run("expire")}>This job ended. Return the pay to the poster</button>
@@ -31,7 +30,7 @@ export default function JobActions({ job }: Readonly<{ job: Job }>) {
       return <button type="button" className={QUIET} disabled={claim.isSubmitting} onClick={() => void claim.run("release_stale_claim")}>The worker ran out of time. Reopen this job</button>
     if (job.status !== "Open") return <p className="text-center text-[15px] text-muted-light">Someone else is on this job.</p>
     if (job.poster === wallet.accountId) return <p className="text-center text-[15px] text-muted-light">You posted this job, so you can't take it.</p>
-    if (job.excluded.includes(wallet.accountId)) return <p className="text-center text-[15px] text-muted-light">You can't take this job again.</p>
+    if (wallet.accountId && job.excluded.includes(wallet.accountId)) return <p className="text-center text-[15px] text-muted-light">You can't take this job again.</p>
     if ((worker.data?.active_job ?? null) !== null) return <Link href={`/jobs/${worker.data?.active_job}`} className={QUIET}>Finish your current job first</Link>
     if ((worker.data?.approved ?? 0) < job.spec.min_reputation)
       return <p className="text-center text-[15px] text-muted-light">Unlocks after {job.spec.min_reputation} finished jobs. You've done {worker.data?.approved ?? 0}.</p>

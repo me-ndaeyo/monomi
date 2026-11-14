@@ -96,3 +96,10 @@ language sql as $$
   on conflict (key, day) do update set count = rate_limits.count + 1
   returning count;
 $$;
+
+-- One role per account, chosen once: 'worker' takes jobs, 'client' posts checks (people or agents).
+create table if not exists account_roles (
+  account text primary key,
+  role text not null check (role in ('worker', 'client')),
+  created_at timestamptz not null default now()
+);

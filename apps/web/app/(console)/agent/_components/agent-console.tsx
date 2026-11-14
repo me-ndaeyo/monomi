@@ -17,14 +17,7 @@ export default function AgentConsole() {
           <h1 className="display m-0 text-[40px] leading-none">Your checks</h1>
           <Link href="/checks/new" className="rounded-full bg-ink px-5 py-3 font-semibold text-bone no-underline">Post a check</Link>
         </div>
-        {wallet.accountId ? (
-          <ChecksTable account={wallet.accountId} />
-        ) : (
-          <div className="rounded-[20px] border border-card-line bg-white p-6">
-            <p className="m-0 mb-3 text-[15px]">Connect the wallet you or your agent post checks from.</p>
-            <button type="button" onClick={wallet.connect} className="rounded-full bg-ink px-5 py-3 font-semibold text-bone">Connect wallet</button>
-          </div>
-        )}
+        {wallet.accountId && <ChecksTable account={wallet.accountId} />}
       </section>
       <section id="limits" className="flex scroll-mt-6 flex-col gap-3">
         <h2 className="m-0 text-[22px] font-semibold">Spending limits</h2>
