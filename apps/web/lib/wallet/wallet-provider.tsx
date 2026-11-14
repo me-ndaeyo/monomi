@@ -42,6 +42,7 @@ export function WalletProvider({ children }: Readonly<{ children: React.ReactNod
     let unsubscribe: (() => void) | undefined
     void setupWalletSelector({
       network: clientEnv.NEXT_PUBLIC_NEAR_NETWORK,
+      modules: [setupHotWallet(), setupMyNearWallet()],
     }).then((ws) => {
       setSelector(ws)
       setModal(setupModal(ws, { contractId: ESCROW, theme: "light" }))
