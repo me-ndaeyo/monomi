@@ -1,42 +1,63 @@
 "use client"
 
+import { useState } from "react"
+
+import RoleCard, { ROLE_COPY, type RoleCardAction } from "@/components/account/role-card"
 import { useRole, type Role } from "@/hooks/use-role"
 import { useWallet } from "@/hooks/use-wallet"
 
-const COPY: Record<Role, { title: string; body: string; choose: string; other: string }> = {
-  worker: {
-    title: "Earn with Monomi",
-    body: "Take checks near you and get paid in USDC. This wallet account will be your worker account.",
-    choose: "Use this account to earn",
-    other: "This account posts checks, so it can't take jobs. Sign out and connect a separate wallet account to earn.",
-  },
-  client: {
-    title: "Post checks",
-    body: "Pay someone nearby to check a place, yourself or through your AI agent. This wallet account will be your client account.",
-    choose: "Use this account to post checks",
-    other: "This account is a worker account, so it can't post checks. Sign out and connect a separate wallet account to post.",
-  },
-}
+const OTHER: Record<Role, Role> = { worker: "client", client: "worker" }
 
-/** One wallet account, one role: workers can't post and clients can't take jobs. */
-export default function RoleGate({ role, tone = "light", children }: Readonly<{ role: Role; tone?: "light" | "dark"; children: React.ReactNode }>) {
+/** One wallet account, one role: workers can't post checks and clients can't take jobs. */
+export default function RoleGate({ role, children }: Readonly<{ role: Role; children: React.ReactNode }>) {
   const wallet = useWallet()
   const current = useRole()
-  const copy = COPY[role]
-  if (current.isLoading) return <div className="m-6 h-48 animate-pulse rounded-[20px] bg-sand" aria-busy="true" />
-  const card = (body: React.ReactNode) => (
-    <div className={`mx-auto my-16 flex max-w-[460px] flex-col gap-4 rounded-[24px] p-6 ${tone === "light" ? "border border-card-line bg-white text-ink" : "bg-ink-2 text-bone"}`}>
-      <h1 className="display m-0 text-[32px] leading-none">{copy.title}</h1>
-      {body}
+  const [choosing, setChoosing] = useState<Role | null>(null)
+
+  if (current.isLoading) return <div className="m-6 h-[60dvh] animate-pulse rounded-[24px] bg-sand" aria-busy="true" />
+  if (wallet.accountId && current.role === role) return <>{children}</>
+
+  const account = wallet.accountId
+  const choose = async (r: Role) => {
+    setChoosing(r)
+    await current.choose(r)
+    setChoosing(null)
+  }
+  const actionFor = (r: Role): RoleCardAction | null => {
+    if (!account) return { label: "Connect a wallet", onClick: wallet.connect }
+    if (current.role === null) return { label: r === "worker" ? "Use this account to earn" : "Use this account to post checks", onClick: () => void choose(r), busy: choosing === r }
+    if (current.role === r) return { label: ROLE_COPY[r].area, href: ROLE_COPY[r].areaHref }
+    return { label: "Switch wallet account", onClick: () => void wallet.disconnect() }
+  }
+  const statusFor = (r: Role): string | undefined => {
+    if (!account || current.role === null) return undefined
+    return current.role === r ? `${account} is set up for this.` : `${account} is a ${current.role} account, so it can't do this.`
+  }
+
+  const heading = !account
+    ? "Connect a wallet to continue."
+    : current.role === null
+      ? "What will this account do?"
+      : `This is a ${current.role} account.`
+  const sub = !account
+    ? "Your NEAR wallet is your Monomi account. No names, emails or phone numbers."
+    : current.role === null
+      ? "You choose once. Monomi keeps the people who pay for checks and the people who do them on separate accounts, so nobody can check their own job."
+      : `To ${role === "worker" ? "take jobs" : "post checks"}, connect a different wallet account. Each account does one of the two.`
+
+  return (
+    <section className="mx-auto flex w-full max-w-[1120px] flex-col gap-8 px-4 py-10 md:py-16">
+      <div className="flex max-w-[720px] flex-col gap-3">
+        <span className="font-mono text-[12px] tracking-[0.08em] text-muted-light">{account ? account.toUpperCase() : "NEAR TESTNET"}</span>
+        <h1 className="display m-0 text-[40px] leading-[0.95] md:text-[64px]">{heading}</h1>
+        <p className="m-0 text-[16px] leading-relaxed text-muted-light md:text-[18px]">{sub}</p>
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        {[role, OTHER[role]].map((r) => (
+          <RoleCard key={r} role={r} highlight={r === role} status={statusFor(r)} action={actionFor(r)} />
+        ))}
+      </div>
       {current.error && <p role="alert" className="m-0 text-[14px] text-fail-light">{current.error}</p>}
-    </div>
+    </section>
   )
-  const button = "h-[52px] rounded-full bg-ink text-[16px] font-semibold text-bone"
-  if (!wallet.accountId)
-    return card(<><p className="m-0 text-[15px] text-muted-light">{copy.body}</p><button type="button" className={button} onClick={wallet.connect}>Connect wallet</button></>)
-  if (current.role === null)
-    return card(<><p className="m-0 text-[15px] text-muted-light">{copy.body} You choose once per account.</p><button type="button" className={button} onClick={() => void current.choose(role)}>{copy.choose}</button></>)
-  if (current.role !== role)
-    return card(<><p className="m-0 text-[15px] text-muted-light">{copy.other}</p><button type="button" className={button} onClick={() => void wallet.disconnect()}>Sign out</button></>)
-  return <>{children}</>
 }
