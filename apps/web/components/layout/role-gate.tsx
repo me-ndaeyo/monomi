@@ -65,6 +65,12 @@ export default function RoleGate({ role, children }: Readonly<{ role: Role; chil
         ))}
       </div>
       {current.error && <p role="alert" className="m-0 text-[14px] text-fail-light">{current.error}</p>}
+      {account && (
+        <p className="m-0 text-[14px] text-muted-light">
+          Wrong account?{" "}
+          <button type="button" onClick={() => void wallet.disconnect()} className="font-semibold text-indigo underline">Sign out of {account}</button>
+        </p>
+      )}
     </section>
   )
 }
