@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Check report</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EFEBE2}
+a{color:#3347C8}a:hover{color:#26359A}
+details summary{cursor:pointer;list-style:none}details summary::-webkit-details-marker{display:none}
+@keyframes rp-stamp{0%{opacity:0;transform:scale(1.6) rotate(-10deg)}60%{opacity:1;transform:scale(.95) rotate(-3deg)}100%{opacity:1;transform:scale(1) rotate(-3deg)}}
+@keyframes rp-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.rp-stamp{display:inline-block;animation:rp-stamp .6s cubic-bezier(.2,.8,.2,1) .3s both}
+.rp-row{animation:rp-rise .5s cubic-bezier(.2,.7,.2,1) both}
+.rp-row:nth-child(1){animation-delay:.3s}.rp-row:nth-child(2){animation-delay:.4s}.rp-row:nth-child(3){animation-delay:.5s}.rp-row:nth-child(4){animation-delay:.6s}.rp-row:nth-child(5){animation-delay:.7s}
+@media (prefers-reduced-motion: reduce){.rp-stamp,.rp-row{animation:none!important;opacity:1!important}}
+</style>
+</helmet>
+<div style="background: #EFEBE2; color: #0B0C0A; font-family: 'Geist', system-ui, sans-serif; min-height: 1100px">
+
+  <header style="border-bottom: 1px solid #DDD7C8">
+    <div style="max-width: 880px; margin: 0 auto; box-sizing: border-box; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #0B0C0A">
+        <svg width="22" height="22" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="12" stroke="#0B0C0A" stroke-width="2.2"></circle><circle cx="17.5" cy="11.5" r="4" fill="#F2A23A"></circle></svg>
+        <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.03em">monomi</span>
+      </a>
+      <button type="button" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #C9C3B3; background: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 10V2.5M5 5l3-3 3 3M3 9.5V13h10V9.5" stroke="#0B0C0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Share report</button>
+    </div>
+  </header>
+
+  <main style="max-width: 880px; margin: 0 auto; box-sizing: border-box; padding: 48px 20px 64px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #5E5C50">CHECK REPORT</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center">
+        <h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(44px, 7vw, 76px); line-height: 0.92; letter-spacing: -0.045em">Yes, it's real.</h1>
+        <span class="rp-stamp" style="border: 3px solid #1F7A4D; color: #1F7A4D; border-radius: 10px; padding: 6px 12px; font-family: 'Geist Mono', monospace; font-weight: 500; font-size: 15px; letter-spacing: 0.08em">VERIFIED</span>
+      </div>
+      <p style="margin: 0; font-size: 18px; line-height: 1.5; color: #3D3B33">Adeyemi Foods warehouse, Ogbomosho · checked on 14 Nov 2026 at 15:16 WAT</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 14px">
+      <div style="background: #FFFFFF; border: 1px solid #DDD7C8; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px; color: #5E5C50">What was asked</span>
+        <span style="font-size: 16px; line-height: 1.5">Photograph the front sign (should read ADEYEMI FOODS) and the stock visible through the gate.</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #DDD7C8; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px; color: #5E5C50">Who checked</span>
+        <span style="font-size: 16px; line-height: 1.5">Someone nearby with 4 finished checks. Their identity stays private.</span>
+      </div>
+    </div>
+
+    <section aria-label="Checks" style="background: #FFFFFF; border: 1px solid #DDD7C8; border-radius: 20px; overflow: hidden">
+      <h2 style="margin: 0; padding: 18px 20px; font-size: 17px; font-weight: 600; border-bottom: 1px solid #EDE8DC">5 of 5 checks passed</h2>
+      <ul style="list-style: none; margin: 0; padding: 0">
+        <li class="rp-row" style="display: grid; grid-template-columns: 26px 1fr auto; gap: 14px; align-items: center; padding: 14px 20px; border-bottom: 1px solid #EDE8DC"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1F7A4D"></circle><path d="M6 10.2l2.6 2.6L14 7.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; font-weight: 500">Taken at the address</span><span style="font-size: 14px; color: #5E5C50">41 m away</span></li>
+        <li class="rp-row" style="display: grid; grid-template-columns: 26px 1fr auto; gap: 14px; align-items: center; padding: 14px 20px; border-bottom: 1px solid #EDE8DC"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1F7A4D"></circle><path d="M6 10.2l2.6 2.6L14 7.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; font-weight: 500">Taken at the time of the check, not before</span><span style="font-size: 14px; color: #5E5C50">2 min after the code</span></li>
+        <li class="rp-row" style="display: grid; grid-template-columns: 26px 1fr auto; gap: 14px; align-items: center; padding: 14px 20px; border-bottom: 1px solid #EDE8DC"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1F7A4D"></circle><path d="M6 10.2l2.6 2.6L14 7.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; font-weight: 500">Fresh code handwritten in the photo</span><span style="font-size: 14px; color: #5E5C50">K7Q2</span></li>
+        <li class="rp-row" style="display: grid; grid-template-columns: 26px 1fr auto; gap: 14px; align-items: center; padding: 14px 20px; border-bottom: 1px solid #EDE8DC"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1F7A4D"></circle><path d="M6 10.2l2.6 2.6L14 7.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; font-weight: 500">The sign matches</span><span style="font-size: 14px; color: #5E5C50">ADEYEMI FOODS</span></li>
+        <li class="rp-row" style="display: grid; grid-template-columns: 26px 1fr auto; gap: 14px; align-items: center; padding: 14px 20px"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1F7A4D"></circle><path d="M6 10.2l2.6 2.6L14 7.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 16px; font-weight: 500">Real photos, not a screen or a printout</span><span style="font-size: 14px; color: #5E5C50">Passed</span></li>
+      </ul>
+    </section>
+
+    <div style="background: #0B0C0A; color: #EFEBE2; border-radius: 20px; padding: 22px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+      <div style="display: flex; gap: 14px; align-items: center">
+        <span style="width: 44px; height: 44px; border-radius: 12px; background: #1C1E18; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4" y="9" width="12" height="8" rx="2" stroke="#F2A23A" stroke-width="1.6"></rect><path d="M7 9V7a3 3 0 016 0v2" stroke="#F2A23A" stroke-width="1.6"></path></svg></span>
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">2 photos</span><span style="font-size: 14px; color: #9A9886">Only the person who paid for this check can see them.</span></span>
+      </div>
+      <a href="Agent.dc.html" style="background: #F2A23A; color: #0B0C0A; text-decoration: none; padding: 13px 18px; border-radius: 999px; font-size: 15px; font-weight: 600">Sign in to view photos</a>
+    </div>
+
+    <p style="margin: 0; font-size: 16px; color: #3D3B33">The person who checked was paid <strong style="color: #0B0C0A">15.00 USDC</strong> the moment these checks passed.</p>
+
+    <details style="border-top: 1px solid #DDD7C8; padding-top: 18px">
+      <summary style="font-size: 15px; font-weight: 600; display: flex; justify-content: space-between">Technical details for developers<span aria-hidden="true" style="color: #5E5C50">+</span></summary>
+      <dl style="margin: 14px 0 0; display: grid; grid-template-columns: 180px 1fr; gap: 8px 16px; font-family: 'Geist Mono', monospace; font-size: 13px">
+        <dt style="color: #5E5C50">Contract</dt><dd style="margin: 0">escrow.monomi.testnet</dd>
+        <dt style="color: #5E5C50">Job</dt><dd style="margin: 0">#0142</dd>
+        <dt style="color: #5E5C50">Payment tx</dt><dd style="margin: 0"><a href="#tx">7Hk3…r9Qa</a></dd>
+        <dt style="color: #5E5C50">Checked by</dt><dd style="margin: 0">NEAR AI Cloud (TEE)</dd>
+        <dt style="color: #5E5C50">Signature</dt><dd style="margin: 0">matches attested key · <a href="#attestation">raw report</a></dd>
+      </dl>
+    </details>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; border-top: 1px solid #DDD7C8; padding-top: 24px">
+      <span style="font-size: 16px">Need somewhere checked before you pay?</span>
+      <a href="ChecksNew.dc.html" style="background: #0B0C0A; color: #EFEBE2; text-decoration: none; padding: 14px 22px; border-radius: 999px; font-size: 15px; font-weight: 600">Post a check</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

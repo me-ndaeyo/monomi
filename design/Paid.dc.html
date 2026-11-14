@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Paid</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0B0C0A}a:hover{color:#2B2414}
+@keyframes pd-pop{0%{opacity:0;transform:scale(.4)}60%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
+@keyframes pd-ring{0%{transform:scale(.6);opacity:.5}100%{transform:scale(2.2);opacity:0}}
+@keyframes pd-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pd-pop{animation:pd-pop .7s cubic-bezier(.2,.8,.2,1) both}
+.pd-ring{animation:pd-ring 2.4s ease-out infinite}
+.pd-ring2{animation-delay:1.2s}
+.pd-r1{animation:pd-rise .7s cubic-bezier(.2,.7,.2,1) .35s both}
+.pd-r2{animation:pd-rise .7s cubic-bezier(.2,.7,.2,1) .5s both}
+.pd-r3{animation:pd-rise .7s cubic-bezier(.2,.7,.2,1) .65s both}
+@media (prefers-reduced-motion: reduce){.pd-pop,.pd-ring,.pd-r1,.pd-r2,.pd-r3{animation:none!important;opacity:1!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F2A23A; color: #0B0C0A; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden; padding: 18px 20px 26px">
+
+  <a href="Jobs.dc.html" aria-label="Close" style="align-self: flex-end; width: 46px; height: 46px; border-radius: 999px; background: rgba(11,12,10,0.1); display: flex; align-items: center; justify-content: center">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round"></path></svg></a>
+
+  <div style="margin-top: 36px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px">
+    <div style="position: relative; width: 96px; height: 96px">
+      <span class="pd-ring" aria-hidden="true" style="position: absolute; inset: 0; border-radius: 999px; border: 2px solid #0B0C0A"></span>
+      <span class="pd-ring pd-ring2" aria-hidden="true" style="position: absolute; inset: 0; border-radius: 999px; border: 2px solid #0B0C0A"></span>
+      <svg class="pd-pop" width="96" height="96" viewBox="0 0 96 96" fill="none" role="img" aria-label="Paid" style="position: relative"><circle cx="48" cy="48" r="46" fill="#0B0C0A"></circle><path d="M30 49l12 12 24-26" stroke="#F2A23A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <span class="pd-r1" style="font-size: 17px; font-weight: 600">Your photos checked out</span>
+    <span class="pd-r1" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 68px; line-height: 0.9; letter-spacing: -0.05em">+15.00<br><span style="font-size: 26px; letter-spacing: -0.02em">USDC</span></span>
+    <span class="pd-r2" style="font-size: 15px; color: #2B2414">is in your wallet now</span>
+  </div>
+
+  <div class="pd-r2" style="margin-top: 32px; background: #0B0C0A; color: #EFEBE2; border-radius: 20px; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px">
+    <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; font-weight: 600">Adeyemi Foods warehouse</span><span style="font-size: 13px; color: #9A9886">just now</span></div>
+    <div style="display: flex; gap: 6px; flex-wrap: wrap; font-size: 12px">
+      <span style="border: 1px solid #2A2D24; border-radius: 999px; padding: 5px 9px; color: #C9C5B8"><span style="color: #3FB67A">✓</span> Right place</span>
+      <span style="border: 1px solid #2A2D24; border-radius: 999px; padding: 5px 9px; color: #C9C5B8"><span style="color: #3FB67A">✓</span> Just now</span>
+      <span style="border: 1px solid #2A2D24; border-radius: 999px; padding: 5px 9px; color: #C9C5B8"><span style="color: #3FB67A">✓</span> Code</span>
+      <span style="border: 1px solid #2A2D24; border-radius: 999px; padding: 5px 9px; color: #C9C5B8"><span style="color: #3FB67A">✓</span> Sign</span>
+      <span style="border: 1px solid #2A2D24; border-radius: 999px; padding: 5px 9px; color: #C9C5B8"><span style="color: #3FB67A">✓</span> Real photos</span>
+    </div>
+    <span style="font-size: 13px; color: #9A9886">That's 4 jobs done. 1 more unlocks bigger jobs.</span>
+  </div>
+
+  <div class="pd-r3" style="margin-top: auto; display: flex; flex-direction: column; gap: 10px">
+    <a href="Wallet.dc.html" style="background: #0B0C0A; color: #EFEBE2; text-decoration: none; height: 58px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 600">Cash out</a>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+      <a href="Report.dc.html" style="height: 52px; border-radius: 16px; border: 1.5px solid #0B0C0A; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">See the report</a>
+      <a href="Jobs.dc.html" style="height: 52px; border-radius: 16px; border: 1.5px solid #0B0C0A; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">Next job</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

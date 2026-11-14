@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Checking your photos</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#3347C8}a:hover{color:#26359A}
+@keyframes ck-spin{to{transform:rotate(360deg)}}
+@keyframes ck-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes ck-scan{0%,100%{transform:translateY(0)}50%{transform:translateY(118px)}}
+.ck-spin{animation:ck-spin 1s linear infinite}
+.ck-scan{animation:ck-scan 2.4s ease-in-out infinite}
+.ck-row{animation:ck-rise .5s cubic-bezier(.2,.7,.2,1) both}
+.ck-row:nth-child(2){animation-delay:.12s}.ck-row:nth-child(3){animation-delay:.24s}.ck-row:nth-child(4){animation-delay:.36s}.ck-row:nth-child(5){animation-delay:.48s}
+@media (prefers-reduced-motion: reduce){.ck-spin,.ck-scan,.ck-row{animation:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #EFEBE2; color: #0B0C0A; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden; padding: 22px 20px 26px">
+
+  <div style="display: flex; justify-content: space-between; align-items: center">
+    <span style="font-size: 14px; color: #5E5C50">Adeyemi Foods warehouse</span>
+    <span style="display: flex; align-items: center; gap: 6px; background: #E3F2E9; color: #1F7A4D; border-radius: 999px; padding: 6px 10px; font-size: 13px; font-weight: 600">
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="#1F7A4D" stroke-width="1.4"></rect><path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="#1F7A4D" stroke-width="1.4"></path></svg>15.00 set aside</span>
+  </div>
+
+  <div style="margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+    <div role="img" aria-label="Your photo of the sign with the code" style="position: relative; height: 140px; border-radius: 16px; background: #2C2F27; overflow: hidden">
+      <div style="position: absolute; left: 14%; right: 14%; top: 26px; height: 30px; border-radius: 4px; background: #3347C8"></div>
+      <div style="position: absolute; right: 14px; bottom: 16px; width: 52px; height: 34px; background: #F5F2EA; transform: rotate(-6deg)"></div>
+      <div class="ck-scan" style="position: absolute; left: 0; right: 0; top: 6px; height: 2px; background: #F2A23A; box-shadow: 0 0 12px 2px rgba(242,162,58,0.7)"></div>
+    </div>
+    <div role="img" aria-label="Your photo of the stock" style="position: relative; height: 140px; border-radius: 16px; background: #24261F; overflow: hidden">
+      <div style="position: absolute; left: 16px; right: 16px; bottom: 16px; height: 64px; border-radius: 4px; background: repeating-linear-gradient(0deg, #4A4636 0 10px, #24261F 10px 14px)"></div>
+    </div>
+  </div>
+
+  <div style="margin-top: 26px; display: flex; align-items: center; gap: 14px">
+    <svg class="ck-spin" width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="14" stroke="#DDD7C8" stroke-width="3.5"></circle><path d="M17 3a14 14 0 0114 14" stroke="#0B0C0A" stroke-width="3.5" stroke-linecap="round"></path></svg>
+    <h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: -0.035em">Checking your photos</h1>
+  </div>
+
+  <ul style="list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #DDD7C8; border-radius: 20px; overflow: hidden">
+    <li class="ck-row" style="display: flex; gap: 14px; align-items: center; padding: 15px 16px; border-bottom: 1px solid #EDE8DC">
+      <svg width="24" height="24" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1F7A4D"></circle><path d="M6 10.2l2.6 2.6L14 7.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">In the right place</span><span style="font-size: 13px; color: #5E5C50">41 m from the address</span></span></li>
+    <li class="ck-row" style="display: flex; gap: 14px; align-items: center; padding: 15px 16px; border-bottom: 1px solid #EDE8DC">
+      <svg width="24" height="24" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1F7A4D"></circle><path d="M6 10.2l2.6 2.6L14 7.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">Taken just now</span><span style="font-size: 13px; color: #5E5C50">2 minutes after your code</span></span></li>
+    <li class="ck-row" style="display: flex; gap: 14px; align-items: center; padding: 15px 16px; border-bottom: 1px solid #EDE8DC; background: #FBF3E6">
+      <svg class="ck-spin" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke="#E8D9BE" stroke-width="2.5"></circle><path d="M12 2.5a9.5 9.5 0 019.5 9.5" stroke="#B26B0F" stroke-width="2.5" stroke-linecap="round"></path></svg>
+      <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">Your code is on paper</span><span style="font-size: 13px; color: #5E5C50">Looking for K7Q2</span></span></li>
+    <li class="ck-row" style="display: flex; gap: 14px; align-items: center; padding: 15px 16px; border-bottom: 1px solid #EDE8DC">
+      <span aria-hidden="true" style="width: 20px; height: 20px; margin: 2px; border-radius: 999px; border: 2px dashed #C9C3B3"></span>
+      <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600; color: #5E5C50">The sign matches</span><span style="font-size: 13px; color: #5E5C50">Should read ADEYEMI FOODS</span></span></li>
+    <li class="ck-row" style="display: flex; gap: 14px; align-items: center; padding: 15px 16px">
+      <span aria-hidden="true" style="width: 20px; height: 20px; margin: 2px; border-radius: 999px; border: 2px dashed #C9C3B3"></span>
+      <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600; color: #5E5C50">Real photos, not a screen</span><span style="font-size: 13px; color: #5E5C50">Checks they weren't faked</span></span></li>
+  </ul>
+
+  <div style="margin-top: auto; display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; color: #3D3B33">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><circle cx="9" cy="9" r="7.5" stroke="#3D3B33" stroke-width="1.4"></circle><path d="M9 5v4.2l2.6 1.6" stroke="#3D3B33" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <span>This can take a minute or two. You can close the app, your job is saved and you'll see the result when you come back.</span>
+  </div>
+  <a href="Jobs.dc.html" style="margin-top: 16px; height: 54px; border-radius: 18px; border: 1.5px solid #0B0C0A; color: #0B0C0A; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600">Back to jobs</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

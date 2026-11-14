@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Post a check</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EFEBE2}
+a{color:#3347C8}a:hover{color:#26359A}
+input:focus,textarea:focus{outline:2px solid #3347C8;outline-offset:1px}
+</style>
+</helmet>
+<div style="background: #EFEBE2; color: #0B0C0A; font-family: 'Geist', system-ui, sans-serif; min-height: 1000px">
+
+  <header style="border-bottom: 1px solid #DDD7C8">
+    <div style="max-width: 1120px; margin: 0 auto; box-sizing: border-box; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+      <a href="Agent.dc.html" style="display: flex; align-items: center; gap: 8px; color: #0B0C0A; text-decoration: none; font-size: 15px; font-weight: 500">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 4L6 9l5 5" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>Your checks</a>
+      <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #5E5C50">supplier-check.testnet · 212.00 USDC</span>
+    </div>
+  </header>
+
+  <main style="max-width: 1120px; margin: 0 auto; box-sizing: border-box; padding: 36px 24px 64px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+    <form style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 26px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 4.4vw, 52px); line-height: 0.95; letter-spacing: -0.04em">Post a check</h1>
+        <p style="margin: 0; font-size: 17px; color: #3D3B33">Tell us where, and what you need to see. Someone nearby goes and photographs it.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <label for="where" style="font-size: 15px; font-weight: 600">Where is it?</label>
+        <input id="where" type="text" value="14 Adeyemi Street, Ogbomosho" style="height: 52px; border-radius: 14px; border: 1px solid #C9C3B3; background: #FFFFFF; padding: 0 14px; font-family: inherit; font-size: 16px; color: #0B0C0A">
+        <div style="position: relative; height: 170px; border-radius: 16px; overflow: hidden; background: #E2DCCD; border: 1px solid #DDD7C8">
+          <svg width="100%" height="170" viewBox="0 0 620 170" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true" style="position: absolute; inset: 0"><path d="M-10 70 C 200 60, 400 90, 640 76" stroke="#F7F4EC" stroke-width="14"></path><path d="M220 -10 L 236 180" stroke="#F7F4EC" stroke-width="10"></path><path d="M440 -10 L 430 180" stroke="#F7F4EC" stroke-width="12"></path><rect x="270" y="96" width="80" height="50" rx="6" fill="#CFC6B2"></rect><circle cx="310" cy="112" r="44" fill="#F2A23A" fill-opacity="0.16" stroke="#F2A23A" stroke-width="1.5" stroke-dasharray="4 4"></circle><path d="M310 120s11-9.5 11-18a11 11 0 00-22 0c0 8.5 11 18 11 18z" fill="#0B0C0A"></path><circle cx="310" cy="102" r="4" fill="#F2A23A"></circle></svg>
+          <span style="position: absolute; left: 12px; bottom: 12px; background: #FFFFFF; border-radius: 999px; padding: 6px 11px; font-size: 13px">Drag the pin if it's off</span>
+        </div>
+        <div role="group" aria-label="How close must they be" style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap">
+          <span style="font-size: 14px; color: #5E5C50; margin-right: 4px">Must be within</span>
+          <button type="button" aria-pressed="false" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9C3B3; background: transparent; font-family: inherit; font-size: 14px">50 m</button>
+          <button type="button" aria-pressed="true" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 2px solid #0B0C0A; background: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 600">100 m</button>
+          <button type="button" aria-pressed="false" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9C3B3; background: transparent; font-family: inherit; font-size: 14px">250 m</button>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <label for="what" style="font-size: 15px; font-weight: 600">What should they photograph?</label>
+        <textarea id="what" rows="3" style="border-radius: 14px; border: 1px solid #C9C3B3; background: #FFFFFF; padding: 12px 14px; font-family: inherit; font-size: 16px; line-height: 1.5; color: #0B0C0A; resize: vertical">The front sign, and the stock you can see through the gate.</textarea>
+        <span style="font-size: 13px; color: #5E5C50">Be specific. Things they can see from outside work best.</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <label for="sign" style="font-size: 15px; font-weight: 600">What should the sign say? <span style="font-weight: 400; color: #5E5C50">(optional)</span></label>
+        <input id="sign" type="text" value="ADEYEMI FOODS" style="height: 52px; border-radius: 14px; border: 1px solid #C9C3B3; background: #FFFFFF; padding: 0 14px; font-family: inherit; font-size: 16px; color: #0B0C0A">
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 18px">
+        <div role="group" aria-label="How many photos" style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 15px; font-weight: 600">How many photos?</span>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: #E2DCCD; border-radius: 12px; padding: 4px">
+            <button type="button" aria-pressed="false" style="height: 40px; border: none; border-radius: 9px; background: transparent; font-family: inherit; font-size: 15px">1</button>
+            <button type="button" aria-pressed="true" style="height: 40px; border: none; border-radius: 9px; background: #FFFFFF; font-family: inherit; font-size: 15px; font-weight: 600; box-shadow: 0 1px 3px rgba(11,12,10,0.1)">2</button>
+            <button type="button" aria-pressed="false" style="height: 40px; border: none; border-radius: 9px; background: transparent; font-family: inherit; font-size: 15px">3</button>
+          </div>
+        </div>
+        <div role="group" aria-label="How long can it wait" style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 15px; font-weight: 600">How long can it wait?</span>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: #E2DCCD; border-radius: 12px; padding: 4px">
+            <button type="button" aria-pressed="false" style="height: 40px; border: none; border-radius: 9px; background: transparent; font-family: inherit; font-size: 15px">1 hour</button>
+            <button type="button" aria-pressed="true" style="height: 40px; border: none; border-radius: 9px; background: #FFFFFF; font-family: inherit; font-size: 15px; font-weight: 600; box-shadow: 0 1px 3px rgba(11,12,10,0.1)">3 hours</button>
+            <button type="button" aria-pressed="false" style="height: 40px; border: none; border-radius: 9px; background: transparent; font-family: inherit; font-size: 15px">1 day</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <label for="pay" style="font-size: 15px; font-weight: 600">What will you pay?</label>
+        <div style="display: flex; align-items: center; height: 60px; border-radius: 14px; border: 1px solid #C9C3B3; background: #FFFFFF; padding: 0 16px; gap: 8px; max-width: 280px">
+          <input id="pay" type="text" inputmode="decimal" value="15.00" style="flex: 1; min-width: 0; border: none; background: transparent; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; color: #0B0C0A; outline: none">
+          <span style="font-size: 15px; font-weight: 600; color: #5E5C50">USDC</span>
+        </div>
+        <span style="font-size: 13px; color: #5E5C50">Between 0.50 and 25.00. Higher pay gets taken faster.</span>
+      </div>
+
+      <div style="display: flex; gap: 10px; background: #FFFFFF; border: 1px solid #DDD7C8; border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.45; color: #3D3B33">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M9 1.8l6 2.4v4.3c0 3.6-2.5 6.4-6 7.7-3.5-1.3-6-4.1-6-7.7V4.2l6-2.4z" stroke="#3D3B33" stroke-width="1.4" stroke-linejoin="round"></path></svg>
+        <span>Places only: shops, sites, public spaces. Checks about a private home or a specific person are taken down and refunded.</span>
+      </div>
+    </form>
+
+    <aside aria-label="Summary" style="flex: 1 1 320px; min-width: 0; position: sticky; top: 24px; background: #0B0C0A; color: #EFEBE2; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #9A9886">SUMMARY</span>
+      <span style="font-size: 17px; font-weight: 600; line-height: 1.35">Adeyemi Foods warehouse, Ogbomosho</span>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #C9C5B8">
+        <li style="display: flex; justify-content: space-between"><span>Within</span><span style="color: #EFEBE2">100 m</span></li>
+        <li style="display: flex; justify-content: space-between"><span>Photos</span><span style="color: #EFEBE2">2</span></li>
+        <li style="display: flex; justify-content: space-between"><span>Sign must say</span><span style="color: #EFEBE2">ADEYEMI FOODS</span></li>
+        <li style="display: flex; justify-content: space-between"><span>Open for</span><span style="color: #EFEBE2">3 hours</span></li>
+      </ul>
+      <div style="border-top: 1px solid #2A2D24; padding-top: 16px; display: flex; justify-content: space-between; align-items: baseline">
+        <span style="font-size: 15px; color: #C9C5B8">You pay</span>
+        <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.035em; color: #F2A23A">15.00 <span style="font-size: 15px; letter-spacing: 0">USDC</span></span>
+      </div>
+      <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #9A9886">It's held until the check is done. If nobody takes it within 3 hours, it comes straight back to you.</p>
+      <button type="button" style="height: 56px; border-radius: 16px; border: none; background: #F2A23A; color: #0B0C0A; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer">Lock 15.00 USDC and post</button>
+      <span style="text-align: center; font-size: 13px; color: #9A9886">You'll confirm in your wallet</span>
+    </aside>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

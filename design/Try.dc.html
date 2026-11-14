@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try Monomi</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0C0A}
+a{color:#EFEBE2}a:hover{color:#F2A23A}
+@keyframes tr-pulse{0%{box-shadow:0 0 0 0 rgba(242,162,58,.55)}100%{box-shadow:0 0 0 14px rgba(242,162,58,0)}}
+@keyframes tr-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.tr-pulse{animation:tr-pulse 1.8s ease-out infinite}
+.tr-rise{animation:tr-rise .7s cubic-bezier(.2,.7,.2,1) both}
+.tr-d1{animation-delay:.1s}.tr-d2{animation-delay:.2s}
+.tr-btn{transition:transform .2s ease,box-shadow .2s ease}.tr-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.3)}
+@media (prefers-reduced-motion: reduce){.tr-pulse,.tr-rise{animation:none!important;opacity:1!important}.tr-btn{transition:none}}
+</style>
+</helmet>
+<div style="background: #0B0C0A; color: #EFEBE2; font-family: 'Geist', system-ui, sans-serif; min-height: 1000px">
+
+  <header style="max-width: 1160px; margin: 0 auto; box-sizing: border-box; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center">
+    <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="12" stroke="#EFEBE2" stroke-width="2"></circle><circle cx="17.5" cy="11.5" r="4" fill="#F2A23A"></circle></svg>
+      <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.03em">monomi</span>
+    </a>
+    <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #9A9886; border: 1px solid #2A2D24; border-radius: 999px; padding: 7px 13px">Test mode · NEAR testnet</span>
+  </header>
+
+  <main style="max-width: 1160px; margin: 0 auto; box-sizing: border-box; padding: 40px 24px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 56px; align-items: start">
+    <div style="display: flex; flex-direction: column; gap: 22px">
+      <h1 class="tr-rise" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(42px, 5.6vw, 76px); line-height: 0.92; letter-spacing: -0.045em">Try the whole loop where you are.</h1>
+      <p class="tr-rise tr-d1" style="margin: 0; font-size: 18px; line-height: 1.55; color: #C9C5B8; max-width: 480px">You'll play both sides: someone who needs a place checked, and the person who checks it. It runs on NEAR testnet with test money, and takes about five minutes.</p>
+      <div class="tr-rise tr-d2" style="border: 1px solid #2A2D24; border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; background: #121310; max-width: 480px">
+        <span style="font-size: 15px; font-weight: 600">What you'll need</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #C9C5B8">A NEAR testnet wallet, your phone's camera, and a pen and paper. You'll write MONOMI and a short code on the paper, then photograph it where you are.</span>
+      </div>
+    </div>
+
+    <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+      <li style="border: 1px solid #2A2D24; border-radius: 18px; padding: 16px 18px; display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: center">
+        <svg width="32" height="32" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#3FB67A"></circle><path d="M6 10.2l2.6 2.6L14 7.5" stroke="#0B0C0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">Connect a testnet wallet</span><span style="font-size: 14px; color: #9A9886">you.testnet is connected</span></span>
+      </li>
+      <li style="border: 1px solid #2A2D24; border-radius: 18px; padding: 16px 18px; display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: center">
+        <svg width="32" height="32" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#3FB67A"></circle><path d="M6 10.2l2.6 2.6L14 7.5" stroke="#0B0C0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">Get test USDC</span><span style="font-size: 14px; color: #9A9886">25.00 test USDC is in your wallet</span></span>
+      </li>
+      <li style="background: #F2A23A; color: #0B0C0A; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: center">
+          <span class="tr-pulse" style="width: 32px; height: 32px; border-radius: 999px; background: #0B0C0A; color: #F2A23A; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px">3</span>
+          <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.03em; line-height: 1.05">Post a test job right here</span>
+        </div>
+        <div style="background: rgba(11,12,10,0.08); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; font-size: 15px">
+          <span style="display: flex; align-items: center; gap: 8px; font-weight: 600"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 14.5s5-4.3 5-8.2A5 5 0 003 6.3c0 3.9 5 8.2 5 8.2z" stroke="#0B0C0A" stroke-width="1.5"></path><circle cx="8" cy="6.4" r="1.8" fill="#0B0C0A"></circle></svg>Using your location, accurate to 20 m</span>
+          <span style="color: #2B2414">The job pays 0.50 test USDC from our demo agent and asks for a photo of MONOMI written on paper.</span>
+        </div>
+        <button type="button" class="tr-btn" style="height: 56px; border-radius: 16px; border: none; background: #0B0C0A; color: #EFEBE2; font-family: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Post a test job here</button>
+      </li>
+      <li style="border: 1px dashed #2A2D24; border-radius: 18px; padding: 16px 18px; display: grid; grid-template-columns: 36px 1fr auto; gap: 14px; align-items: center">
+        <span style="width: 32px; height: 32px; border-radius: 999px; border: 1.5px solid #3A3D33; color: #9A9886; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px">4</span>
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600; color: #C9C5B8">Take the job on your phone</span><span style="font-size: 14px; color: #9A9886">Scan the code to open it, then take the photo</span></span>
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" role="img" aria-label="QR code to open the job on your phone"><rect width="56" height="56" rx="8" fill="#EFEBE2"></rect><rect x="7" y="7" width="14" height="14" rx="2" stroke="#0B0C0A" stroke-width="3"></rect><rect x="35" y="7" width="14" height="14" rx="2" stroke="#0B0C0A" stroke-width="3"></rect><rect x="7" y="35" width="14" height="14" rx="2" stroke="#0B0C0A" stroke-width="3"></rect><path d="M28 8v6M28 20h6M38 30h4v4M30 30v12M36 40h12M44 34v4M24 28h-4" stroke="#0B0C0A" stroke-width="3"></path></svg>
+      </li>
+      <li style="border: 1px dashed #2A2D24; border-radius: 18px; padding: 16px 18px; display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: center">
+        <span style="width: 32px; height: 32px; border-radius: 999px; border: 1.5px solid #3A3D33; color: #9A9886; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px">5</span>
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600; color: #C9C5B8">Watch it get checked and paid</span><span style="font-size: 14px; color: #9A9886">Then open the report, like a business would</span></span>
+      </li>
+      <li style="font-size: 13px; color: #9A9886; padding: 6px 4px">One test job per wallet per day. No real money moves.</li>
+    </ol>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
