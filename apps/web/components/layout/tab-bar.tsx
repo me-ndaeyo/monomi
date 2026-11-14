@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { WORKER_TABS } from "@/config/routes"
+import { isTabActive } from "./active-tab"
 import TabIcon from "./tab-icon"
 
 export default function TabBar() {
@@ -11,7 +12,7 @@ export default function TabBar() {
   return (
     <nav aria-label="App" className="fixed inset-x-3 bottom-4 z-20 mx-auto grid md:hidden max-w-[456px] grid-cols-4 rounded-[22px] bg-ink p-2 shadow-[0_10px_30px_rgba(11,12,10,0.3)]">
       {WORKER_TABS.map((tab) => {
-        const active = pathname.startsWith(tab.url)
+        const active = isTabActive(tab.url, pathname)
         return (
           <Link
             key={tab.url}

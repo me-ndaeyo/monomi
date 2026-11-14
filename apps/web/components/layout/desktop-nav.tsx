@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import TabIcon from "@/components/layout/tab-icon"
 import Wordmark from "@/components/ui/wordmark"
 import { WORKER_TABS } from "@/config/routes"
+import { isTabActive } from "./active-tab"
 import { useUsdcBalance } from "@/hooks/use-chain"
 import { useWallet } from "@/hooks/use-wallet"
 import { formatUsdc } from "@/lib/format/usdc"
@@ -20,7 +21,7 @@ export default function DesktopNav() {
       <Wordmark />
       <nav aria-label="App" className="flex gap-1 rounded-full bg-ink-2 p-1">
         {WORKER_TABS.map((tab) => {
-          const active = pathname.startsWith(tab.url)
+          const active = isTabActive(tab.url, pathname)
           return (
             <Link key={tab.url} href={tab.url} aria-current={active ? "page" : undefined} className={`flex items-center gap-2 rounded-full px-4 py-2 text-[14px] no-underline ${active ? "bg-kola font-semibold text-ink" : "text-soft hover:text-bone"}`}>
               <TabIcon name={tab.name} color={active ? "#0B0C0A" : "#9A9886"} />

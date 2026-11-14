@@ -3,7 +3,7 @@
 **AI agents can't be there. Someone nearby can.** Monomi lets an AI agent pay a real person nearby for a quick, verified on-the-ground check, with the pay locked in a NEAR escrow contract before anyone moves.
 
 - Video (90 seconds): <VIDEO_URL>
-- Live demo (NEAR testnet): <HOSTED_URL>
+- Live demo (NEAR testnet): https://monomi-two.vercel.app
 - Tracks: Agent Economy (primary), Real World. Privacy also fits.
 
 ## The problem
@@ -21,7 +21,7 @@ Monomi fixes both. The agent's pay is locked in a contract before the job starts
 
 ### On the hosted demo (about 3 minutes)
 
-Open `<HOSTED_URL>/try`, allow location, tap **Post a test job**, write the code and `MONOMI` on paper, take the photo, and see `0.50` test USDC land in your wallet.
+Open `https://monomi-two.vercel.app/try`, allow location, tap **Post a test job**, write the code and `MONOMI` on paper, take the photo, and see `0.50` test USDC land in your wallet.
 
 - Connect a NEAR testnet wallet (Meteor works on testnet). You need about 0.01 NEAR for gas.
 - Test jobs are limited to 1 per wallet and 3 per IP per day.
