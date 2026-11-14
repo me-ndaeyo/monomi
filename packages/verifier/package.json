@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./checks": "./src/checks.ts"
   },
   "scripts": {
     "test": "vitest run",

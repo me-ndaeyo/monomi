@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0b0c0a;
+  --ink-2: #121310;
+  --ink-3: #1c1e18;
+  --line: #2a2d24;
+  --bone: #efebe2;
+  --sand: #e2dccd;
+  --card-line: #ddd7c8;
+  --muted: #9a9886;
+  --muted-light: #5e5c50;
+  --soft: #c9c5b8;
+  --kola: #f2a23a;
+  --indigo: #3347c8;
+  --pass: #3fb67a;
+  --pass-light: #1f7a4d;
+  --fail: #e5484d;
+  --fail-light: #c2363b;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-bone: var(--bone);
+  --color-sand: var(--sand);
+  --color-card-line: var(--card-line);
+  --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
+  --color-soft: var(--soft);
+  --color-kola: var(--kola);
+  --color-indigo: var(--indigo);
+  --color-pass: var(--pass);
+  --color-pass-light: var(--pass-light);
+  --color-fail: var(--fail);
+  --color-fail-light: var(--fail-light);
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+  --font-hand: var(--font-caveat);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+.display {
+  font-family: var(--font-bricolage), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+/* Landing (Main.dc.html, Mobile.dc.html) */
+@keyframes m-rise { from { opacity: 0; transform: translateY(16px) } to { opacity: 1; transform: none } }
+@keyframes m-pulse { 0% { box-shadow: 0 0 0 0 rgba(242,162,58,.55) } 100% { box-shadow: 0 0 0 12px rgba(242,162,58,0) } }
+@keyframes m-float { 0%,100% { transform: translateY(0) rotate(-3deg) } 50% { transform: translateY(-8px) rotate(-3deg) } }
+@keyframes m-toast { 0%,18% { opacity: 0; transform: translateY(18px) rotate(3deg) } 26%,82% { opacity: 1; transform: translateY(0) rotate(3deg) } 92%,100% { opacity: 0; transform: translateY(-8px) rotate(3deg) } }
+@keyframes m-fill { 0% { transform: scaleX(0) } 70%,100% { transform: scaleX(1) } }
+@keyframes m-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+@keyframes m-up { from { transform: translateY(105%) } to { transform: none } }
+@keyframes m-stamp { 0% { opacity: 0; transform: scale(1.7) rotate(-10deg) } 60% { opacity: 1; transform: scale(.94) rotate(-3deg) } 100% { opacity: 1; transform: scale(1) rotate(-3deg) } }
+@keyframes m-node { 0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242,162,58,0) } 6% { transform: scale(1.14); box-shadow: 0 0 0 10px rgba(242,162,58,.16) } 14% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242,162,58,0) } }
+.m-rise { animation: m-rise .8s cubic-bezier(.2,.7,.2,1) both }
+.m-d1 { animation-delay: .1s } .m-d2 { animation-delay: .22s } .m-d3 { animation-delay: .34s } .m-d4 { animation-delay: .6s }
+.m-pulse { animation: m-pulse 1.8s ease-out infinite }
+.m-float { animation: m-float 6s ease-in-out infinite }
+.m-toast { animation: m-toast 7s ease-in-out infinite }
+.m-fill { transform-origin: left center; animation: m-fill 6s cubic-bezier(.6,0,.3,1) infinite }
+.m-marquee { animation: m-marquee 48s linear infinite }
+.m-line { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em }
+.m-line > span { display: block; animation: m-up 1s cubic-bezier(.2,.75,.15,1) .05s both }
+.m-l2 > span { animation-delay: .18s }
+.m-panel { animation: m-rise .5s cubic-bezier(.2,.7,.2,1) both }
+.m-stamp { display: inline-block; animation: m-stamp .6s cubic-bezier(.2,.8,.2,1) 1.5s both }
+.m-node { animation: m-node 6s ease-in-out infinite }
+.m-how li:nth-child(2) .m-node { animation-delay: 1.25s }
+.m-how li:nth-child(3) .m-node { animation-delay: 2.5s }
+.m-how li:nth-child(4) .m-node { animation-delay: 3.75s }
+.m-btn { transition: transform .2s ease, box-shadow .2s ease }
+.m-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,.28) }
+
+/* Worker app (Jobs, Job, Paid, Checking) */
+@keyframes j-halo { 0% { transform: scale(.6); opacity: .55 } 100% { transform: scale(2.4); opacity: 0 } }
+@keyframes j-bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
+@keyframes pd-pop { 0% { opacity: 0; transform: scale(.4) } 60% { opacity: 1; transform: scale(1.08) } 100% { opacity: 1; transform: scale(1) } }
+@keyframes pd-ring { 0% { transform: scale(.6); opacity: .5 } 100% { transform: scale(2.2); opacity: 0 } }
+@keyframes ck-spin { to { transform: rotate(360deg) } }
+@keyframes ck-scan { 0%,100% { transform: translateY(0) } 50% { transform: translateY(118px) } }
+.j-halo { animation: j-halo 2.2s ease-out infinite }
+.j-bob { animation: j-bob 3s ease-in-out infinite }
+.pd-pop { animation: pd-pop .7s cubic-bezier(.2,.8,.2,1) both }
+.pd-ring { animation: pd-ring 2.4s ease-out infinite }
+.pd-ring2 { animation-delay: 1.2s }
+.ck-spin { animation: ck-spin 1s linear infinite }
+.ck-scan { animation: ck-scan 2.4s ease-in-out infinite }
+
+/* Shared row-by-row entrance (Checking, Report, Paid) */
+.rise-rows > * { animation: m-rise .5s cubic-bezier(.2,.7,.2,1) both }
+.rise-rows > *:nth-child(2) { animation-delay: .12s }
+.rise-rows > *:nth-child(3) { animation-delay: .24s }
+.rise-rows > *:nth-child(4) { animation-delay: .36s }
+.rise-rows > *:nth-child(5) { animation-delay: .48s }
+.rise-rows > *:nth-child(6) { animation-delay: .6s }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important }
+}
